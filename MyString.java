@@ -83,23 +83,23 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String newString =" ";
-        if(str ==null)
+        String newString = "";
+        if(str == null)
         {
-            return str;
+            return "";
         }
+        newString = newString + str.charAt(0);
         if(str.length()>1)
         {
-            for(int i=0; i<str.length()-1; i++)
+            for(int i=1; i<str.length(); i++)
             {
-                newString = newString + str.charAt(i) + " ";
+                newString = newString + " " + str.charAt(i);
             }
         }
         else
         {
-            return str;
+            return "";
         }
-        newString = newString + str.charAt(str.length() - 1);
         return newString;
     }
   
@@ -135,20 +135,21 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-        String newStr = "";
-        if(str1 == null || str2 == null)
-        {
-            return str1;
+        String newStr = str1;
+        for (int i = 0; i < str2.length(); i++){
+             boolean found = false;
+             newStr = "";
+             for (int j = 0; j < str1.length(); j++){
+                 if (!found && str1.charAt(j) == str2.charAt(i)){
+                     found = true;
+                 }
+                 else {
+                     newStr += str1.charAt(j);
+                 }
+             }
+             str1 = newStr;
         }
-        for (int i = 0; i < str1.length(); i++) 
-        {
-            char c = str1.charAt(i);
-            if (str2.indexOf(c) == -1) 
-            {
-                newStr += c;
-            }
-        }
-        return newStr;
+         return newStr;
     }
 
     /**
