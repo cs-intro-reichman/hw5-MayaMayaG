@@ -98,7 +98,7 @@ public class MyString {
         }
         else
         {
-            return "";
+            return str;
         }
         return newString;
     }
