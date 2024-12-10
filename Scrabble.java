@@ -54,7 +54,7 @@ public class Scrabble {
 			{
 				break;
 			}
-			if (DICTIONARY[i].equals(word))
+			if (word.equals(DICTIONARY[i]))
 			{
 				return true;
 			}
